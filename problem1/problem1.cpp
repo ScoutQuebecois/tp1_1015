@@ -3,32 +3,26 @@
 
 using namespace std;
 
-
-
-
 int main(int argc, char* argv[])
 {
 
-	int input;
-	string out = "";
+	int input = 0;
+	string out = "Ce nombre est premier";
 	
-	cout << "entrer un nombre entier : ";
+	cout << "Entrer un nombre entier : ";
 	cin >> input;
 
 	if (input % 2 != 0) {
 		for (int i = 3; i < sqrt(input); i += 2) {
-			out = "ce nombre est premier";
 			if (input % i == 0) {
-				out = "ce nombre n'est pas premier car il est divisible par " + i;
+				out = "Ce nombre n'est pas premier car il est divisible par " + i;
 				break;
 			}
 		}
 		
 	} else if (input != 2) {
-		out = "ce nombre n'est pas premier car il est divisible par 2.";
-	} else {
-		out = "ce nombre est premier";
-	}
+		out = "Ce nombre n'est pas premier car il est divisible par 2.";
+	} 
 
 	cout << out;
 	
