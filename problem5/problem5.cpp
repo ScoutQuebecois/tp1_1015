@@ -9,7 +9,7 @@ const int NOMBRE_VALEURS = 10;
 int main(int argc, char* argv[]) {
 	int valeurs[NOMBRE_VALEURS];
 
-	cout << "entrer une liste de 10 entier separes par des espaces: ";
+	cout << "entrer une liste de 10 entiers separes par des espaces: ";
 	for (int i = 0; i < 10; i++) {
 		cin >> valeurs[i];
 	}
