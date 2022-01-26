@@ -5,7 +5,6 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-
 	int input = 0;
 	string out = "Ce nombre est premier";
 	
@@ -23,9 +22,7 @@ int main(int argc, char* argv[])
 	} else if (input != 2) {
 		out = "Ce nombre n'est pas premier car il est divisible par 2.";
 	} 
-
 	cout << out;
-	
 }
 
 
