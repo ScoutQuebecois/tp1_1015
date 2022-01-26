@@ -1,46 +1,40 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-#include <vector>
 
 using namespace std;
-const int nValeurs = 10;
+
+const int NOMBRE_VALEURS = 10;
 
 int main(int argc, char* argv[]) {
+	int valeurs[NOMBRE_VALEURS];
 
-	
-
-	int list[nValeurs];
-
-	cout << "entrer une liste de 10 entier: ";
+	cout << "entrer une liste de 10 entier separes par des espaces: ";
 	for (int i = 0; i < 10; i++) {
-		cin >> list[i];
-
+		cin >> valeurs[i];
 	}
 	
-	int trier[nValeurs];
-	int pointPair = 0;
-	int pointImpair = 1;
+	int valeursTriees[NOMBRE_VALEURS];
+	int compteurPair = 0;
+	int compteurImpair = 1;
 
-	for (int element : list) {
+	for (int element : valeurs) {
 		if (element % 2 == 0) {
-			trier[pointPair] = element;
-			pointPair++;
+			valeursTriees[compteurPair] = element;
+			compteurPair++;
 		}
 		else {
-			trier[nValeurs - pointImpair] = element;
-			pointImpair++;
+			valeursTriees[NOMBRE_VALEURS - compteurImpair] = element;
+			compteurImpair++;
 		}
 	}
-
 
 	string sortie = "{";
 
 	for (int i = 0; i < 10;i++) {
-		sortie =sortie+to_string(trier[i])+",";
+		sortie =sortie+to_string(valeursTriees[i])+",";
 	}
 	sortie[sortie.size() - 1] = '}';
 	cout << sortie;
-
 }
 
