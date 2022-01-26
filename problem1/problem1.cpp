@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <math.h>
 
 using namespace std;
@@ -14,14 +15,16 @@ int main(int argc, char* argv[])
 	if (input % 2 != 0) {
 		for (int i = 3; i < sqrt(input); i += 2) {
 			if (input % i == 0) {
-				out = "Ce nombre n'est pas premier car il est divisible par " + i;
+				out = "Ce nombre n'est pas premier car il est divisible par " + to_string(i);
 				break;
 			}
 		}
-		
-	} else if (input != 2) {
+	} else if (input != 2 && input != 0) {
 		out = "Ce nombre n'est pas premier car il est divisible par 2.";
-	} 
+	}
+	else {
+		out = "0 n'est pas un nombre premier.";
+	}
 	cout << out;
 }
 

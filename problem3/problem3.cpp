@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const double constGravite = 9.81;
+const double CONST_GRAVITE = 9.81;
 
 double entreeValide(string message, double min, double max) {
 
@@ -20,26 +20,24 @@ double entreeValide(string message, double min, double max) {
 
 int main(int argc, char* argv[]) {
 	
-
-	double hauteurDep = entreeValide("hauteur initial: ", 0 , INFINITY);
+	double hauteurInitiale = entreeValide("hauteur initial: ", 0 , INFINITY);
 	double nRebonds = entreeValide("Hauteur apres combien de rebonds: ", 0 , INFINITY);
-	double coeffReb = entreeValide("Coefficient de rebond: ", 0 , 1);
+	double coeffRebond = entreeValide("Coefficient de rebond: ", 0 , 1);
 
-	// variable de travaille intermediaire
-	double hi = hauteurDep, hApres=0;
-	double vi=0, vApres=0;
+	double hauteurProchaine=0;
+	double vitesseInitiale=0, vitesseProchaine=0;
 
-	for (int i = 1; i < nRebonds; i++) {           // A revoir et corriger possible erreure de calcule 
+	for (int i = 1; i < nRebonds; i++) {   
 		
-		vi = sqrt(2 * constGravite * hi);
-		vApres = coeffReb * vi;
-		hApres = pow(vApres,2) / (2 * constGravite);
+		vitesseInitiale = sqrt(2 * CONST_GRAVITE * hauteurInitiale);
+		vitesseProchaine = coeffRebond * vitesseInitiale;
+		hauteurProchaine = pow(vitesseProchaine,2) / (2 * CONST_GRAVITE);
 
-		hi = hApres;
-		vi = vApres;
+		hauteurInitiale = hauteurProchaine;
+		vitesseInitiale = vitesseProchaine;
 	}
 	
-	cout << "la hauteur apres les rebonds est: " + to_string(hApres);
+	cout << "la hauteur apres les rebonds est: " + to_string(hauteurProchaine);
 
 
 }
